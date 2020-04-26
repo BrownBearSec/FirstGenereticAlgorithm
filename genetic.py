@@ -5,37 +5,45 @@
 #Fitness function - tick
 #Selection - tick
 #Crossover - tick
-#Mutation
+#Mutation - 
 
 import Population
 import Fitness
 import Selection
 import Crossover
+import Target
 
-p = Population.Population(6)
+target = Target.Target.getTarget()
+
+p = Population.Population(100)
 population = p.getPopulations()
 
-f = Fitness.Fitness(population)
-fitness = f.getFitness()
+for x in range(0, 10):
 
-s = Selection.Selection(fitness)
-firstChoice = s.selectFromPop()
+    for i in range(0, len(population)):
+        for j in range(0, len(target)):
+            if ("".join(population[i][j]) == target):
+                print("Its Done!")
+                break
 
-del fitness[firstChoice]
 
-s2 = Selection.Selection(fitness)
-secondChoice = s2.selectFromPop()
+    f = Fitness.Fitness(population)
+    fitness = f.getFitness()
 
-c = Crossover.Crossover(population, firstChoice, secondChoice)
-population = c.crossover()
+    s = Selection.Selection(fitness)
+    firstChoice, secondChoice = s.selectFromPop()
 
-print("population is")
-print(population)
-print("Fitness is")
-print(fitness)
-print("first choice is")
-print(firstChoice)
-print(population[firstChoice])
-print("second choice is")
-print(secondChoice)
-print(population[secondChoice])
+
+    c = Crossover.Crossover(population, firstChoice, secondChoice)
+    population = c.crossover()
+
+    print("Fitness is")
+    print(fitness)
+    print("new population is")
+    print(population)
+    print("first choice is")
+    print(firstChoice)
+    print(population[firstChoice])
+    print("second choice is")
+    print(secondChoice)
+    print(population[secondChoice])

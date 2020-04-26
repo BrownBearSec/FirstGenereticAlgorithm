@@ -7,12 +7,15 @@ class Selection():
 
     def selectFromPop(self):
         total = 0
-        choice = 0
+        firstChoice = 0
+        secondChoice = 0
         catch = 0
 
         for i in range(0, len(self.fitness)):
             total = total + self.fitness[i][0]
         
+        if (total == 0):
+            total = 1
         
         
         
@@ -42,12 +45,17 @@ class Selection():
         for i in range(0, len(percentage)):
 
             if(randomChoice <= percentage[i][0]):
-                choice = i
+                if (catch == 0):
+                    firstChoice = i
+                if (catch == 1):
+                    secondChoice = i
                 #print("Choice is")
                 #print(choice)    
-                break
+                if (catch == 2):
+                    break
+                catch = catch + 1
 
-        return choice     
+        return firstChoice, secondChoice
         
                     
              

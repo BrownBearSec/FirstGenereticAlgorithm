@@ -12,19 +12,39 @@ class Crossover():
         self.newPopulation = []
 
     def crossover(self):
-        #creates new population, empty
-        #for i in range(0, len(self.population)):
-            
-            #print(self.newPopulation)
-            #print(self.population)
-           
-            
-        #gives values to empty array similar to first and second choices
-        for i in range(0, len(self.population)):
+        
+        
+
+        for j in range(0, len(self.population)):
             temp = []
-            for j in range(0, len(self.population)):
-                temp.append(chr(random.randint(ord(self.population[self.firstChoice][j]) - 5, ord(self.population[self.firstChoice][j]) + 5)))
+            for i in range(0, len(self.target)):
+              
+                switch = bool(random.getrandbits(1))
+                if (switch):
+                    temp.append(self.population[self.firstChoice][i])
+                else:
+                    temp.append(self.population[self.secondChoice][i])
+               
             self.newPopulation.append(temp)
-        #print(self.newPopulation)
-                
+
+    
+
+     
+        #OLD VERSION THAT CAUSED PROGRAM RANDOM CONFUSION - BAD
+
+        #gives values to empty array similar to first and second choices
+        # for i in range(0, len(self.population)):
+        #     temp = []
+        #     for j in range(0, len(self.population)):
+
+        #         selectionTemp = random.randint(ord(self.population[self.firstChoice][j]) - 3, ord(self.population[self.firstChoice][j]) + 3)
+        #         if (selectionTemp >= 32 and selectionTemp <= 122):
+        #             temp.append(chr(selectionTemp))
+        #         else:
+        #             temp.append(self.population[self.firstChoice][j])
+          
+        #     self.newPopulation.append(temp)
+        # #print(self.newPopulation)
+
+        
         return(self.newPopulation)

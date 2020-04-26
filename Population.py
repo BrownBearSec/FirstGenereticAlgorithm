@@ -1,9 +1,12 @@
+import Target
 import random
 
 class Population():
 
     def __init__(self, size):
         self.size = size
+        self.target = Target.Target.getTarget()
+        self.population = []
 
     def randomChar(self):
         belowAbove = random.choice([True, False])
@@ -15,13 +18,15 @@ class Population():
         return randomChar
 
     def getPopulations(self):
-        population = []
-        for i in range(0, self.size):
-            population.append([])
             
         for j in range(0, self.size):
-            for i in range(0, self.size):
-                population[j].append(self.randomChar()) 
-        return population
+            temp = []
+            for i in range(0, len(self.target)):
+                temp.append(self.randomChar())
+            self.population.append(temp) 
+                
+        print("INITIAL population is")
+        print(self.population)
+        return self.population
 
     
