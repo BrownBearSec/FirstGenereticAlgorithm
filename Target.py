@@ -2,4 +2,7 @@ class Target():
 
 
     def getTarget():
-        return "Joseph"
+        return "Happiness noise"
+
+    def getFitnessValue():
+        return 5

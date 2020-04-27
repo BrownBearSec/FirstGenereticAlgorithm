@@ -13,9 +13,9 @@ class Crossover():
 
     def crossover(self):
         
-        
+        self.newPopulation.append(self.population[self.firstChoice])
 
-        for j in range(0, len(self.population)):
+        for j in range(0, len(self.population) - 1):
             temp = []
             for i in range(0, len(self.target)):
               

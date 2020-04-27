@@ -15,7 +15,7 @@ class Fitness():
         for i in range(0, len(self.population)):
             for j in range(0,len(self.population[0])):
                 if (ord(self.population[i][j]) == ord(self.target[j])):
-                    self.dump.append(50)
+                    self.dump.append(Target.Target.getFitnessValue())
                 else:
                     self.dump.append(0)
 

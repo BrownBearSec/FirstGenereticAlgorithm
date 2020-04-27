@@ -1,11 +1,13 @@
 import Population
 import random
+import Target
 
 class Mutation():
 
     def __init__(self, population, rate):
         self.population = population
         self.rate = rate
+        self.target = Target.Target.getTarget()
 
     def mutate(self):
         length = len(self.population)
@@ -13,10 +15,14 @@ class Mutation():
         if (amount == 0):
             amount = 1
         for i in range(0, amount):
-            del self.population[random.randint(0, len(self.population))]
-        for i in range(0, amount):
-            temp = []
-            for i in range(0, len(t))
-            temp.append()
-            # ADD THE THING THAT ADDS A NEW RANDOM ARRAY IN ARRAY
-        
+            randomChromosome = random.randint(0, len(self.population) - 1)
+            randomGene = random.randint(0, len(self.target)-1)
+            #print(randomChromosome)
+            #print(randomGene)
+            self.population[randomChromosome][randomGene] = Population.Population.randomChar(self)
+
+        # print("MUTATED GENE IS")
+        # print(randomChromosome)
+        # print(randomGene)
+            
+        return self.population

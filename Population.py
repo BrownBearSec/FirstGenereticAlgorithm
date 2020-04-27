@@ -9,11 +9,16 @@ class Population():
         self.population = []
 
     def randomChar(self):
-        belowAbove = random.choice([True, False])
-        if (belowAbove):
-            randomChar = chr(random.randint(65, 90))  
+
+        spaceChance = random.randint(0, 53)
+        if (spaceChance == 0):
+            randomChar = " "
         else:
-            randomChar = chr(random.randint(97,122))
+            belowAbove = random.choice([True, False])
+            if (belowAbove):
+                randomChar = chr(random.randint(65, 90))  
+            else:
+                randomChar = chr(random.randint(97,122))
 
         return randomChar
 
